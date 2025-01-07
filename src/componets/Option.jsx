@@ -1,10 +1,10 @@
-const Option = ({ options, handleChange, title, typeUser})=> {
+const Option = ({ options, handleChange, title, value, valueName})=> {
     return (
         <div className="input-group mb-3">
-            <div className="input-group-prepend mr-4">
-                <button className="btn btn-outline-secondary" type="button">{ title }</button>
+            <div className="input-group-prepend">
+                <button className="btn btn-outline-secondary me-5 w-80" type="button">{ title }</button>
             </div>
-            <select className="custom-select" id="inputGroupSelect03" name="typeUser" value={typeUser} onChange={handleChange}>
+            <select className="custom-select secundary-color" id="inputGroupSelect03" name={valueName} value={value} onChange={handleChange}>
                 <option value="" disabled selected>
                     Seleccione una Opción
                 </option>
