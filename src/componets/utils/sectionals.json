@@ -1,0 +1,172 @@
+[
+    {
+        "id": 1,
+        "SIGLA": "GGARA",
+        "NOMBRE": "GAULA MILITAR ARAUCA"
+    },
+    {
+        "id": 2,
+        "SIGLA": "GGARI",
+        "NOMBRE": "GAULA MILITAR ARIARI"
+    },
+    {
+        "id": 3,
+        "SIGLA": "GGBCA",
+        "NOMBRE": "GAULA MILITAR BAJO CAUCA"
+    },
+    {
+        "id": 4,
+        "SIGLA": "GGBOL",
+        "NOMBRE": "GAULA MILITAR BOLIVAR"
+    },
+    {
+        "id": 5,
+        "SIGLA": "GGBOY",
+        "NOMBRE": "GAULA MILITAR BOYACA"
+    },
+    {
+        "id": 6,
+        "SIGLA": "GGBUE",
+        "NOMBRE": "GAULA MILITAR BUENAVENTURA"
+    },
+    {
+        "id": 7,
+        "SIGLA": "GGCAQ",
+        "NOMBRE": "GAULA MILITAR CAQUETA"
+    },
+    {
+        "id": 8,
+        "SIGLA": "GGCAR",
+        "NOMBRE": "GAULA MILITAR CARIBE"
+    },
+    {
+        "id": 9,
+        "SIGLA": "GGCAS",
+        "NOMBRE": "GAULA MILITAR CASANARE"
+    },
+    {
+        "id": 10,
+        "SIGLA": "GGCAU",
+        "NOMBRE": "GAULA MILITAR CAUCA"
+    },
+    {
+        "id": 11,
+        "SIGLA": "GGCES",
+        "NOMBRE": "GAULA MILITAR CESAR"
+    },
+    {
+        "id": 12,
+        "SIGLA": "GGCHI",
+        "NOMBRE": "GAULA MILITAR CHICAMOCHA"
+    },
+    {
+        "id": 13,
+        "SIGLA": "GGCHO",
+        "NOMBRE": "GAULA MILITAR CHOCO"
+    },
+    {
+        "id": 14,
+        "SIGLA": "GGCUN",
+        "NOMBRE": "GAULA MILITAR CUNDINAMARCA"
+    },
+    {
+        "id": 15,
+        "SIGLA": "GGEJE",
+        "NOMBRE": "GAULA MILITAR EJE CAFETERO"
+    },
+    {
+        "id": 16,
+        "SIGLA": "GGGUA",
+        "NOMBRE": "GAULA MILITAR GUAJIRA"
+    },
+    {
+        "id": 17,
+        "SIGLA": "GGHUI",
+        "NOMBRE": "GAULA MILITAR HUILA"
+    },
+    {
+        "id": 18,
+        "SIGLA": "GGMAG",
+        "NOMBRE": "GAULA MILITAR MAGDALENA"
+    },
+    {
+        "id": 19,
+        "SIGLA": "GGMAM",
+        "NOMBRE": "GAULA MILITAR MAGDALENA MEDIO"
+    },
+    {
+        "id": 20,
+        "SIGLA": "GGMET",
+        "NOMBRE": "GAULA MILITAR META"
+    },
+    {
+        "id": 21,
+        "SIGLA": "GGNAR",
+        "NOMBRE": "GAULA MILITAR NARIÑO"
+    },
+    {
+        "id": 22,
+        "SIGLA": "GGNSA",
+        "NOMBRE": "GAULA MILITAR NORTE DE SANTANDER"
+    },
+    {
+        "id": 23,
+        "SIGLA": "GGORC",
+        "NOMBRE": "GAULA MILITAR ORIENTE COLOMBIANO"
+    },
+    {
+        "id": 24,
+        "SIGLA": "GGORI",
+        "NOMBRE": "GAULA MILITAR ORIENTE ANTIOQUEÑO"
+    },
+    {
+        "id": 25,
+        "SIGLA": "GGPUT",
+        "NOMBRE": "GAULA MILITAR PUTUMAYO"
+    },
+    {
+        "id": 26,
+        "SIGLA": "GGSIN",
+        "NOMBRE": "GAULA MILITAR SINÚ"
+    },
+    {
+        "id": 27,
+        "SIGLA": "GGSUC",
+        "NOMBRE": "GAULA MILITAR SUCRE"
+    },
+    {
+        "id": 28,
+        "SIGLA": "GGTOL",
+        "NOMBRE": "GAULA MILITAR TOLIMA"
+    },
+    {
+        "id": 29,
+        "SIGLA": "GGTUM",
+        "NOMBRE": "GAULA MILITAR TUMACO"
+    },
+    {
+        "id": 30,
+        "SIGLA": "GGURA",
+        "NOMBRE": "GAULA MILITAR URABÁ"
+    },
+    {
+        "id": 31,
+        "SIGLA": "GGVAB",
+        "NOMBRE": "GAULA MILITAR VALLE DE ABURRÁ"
+    },
+    {
+        "id": 32,
+        "SIGLA": "GGVAL",
+        "NOMBRE": "GAULA MILITAR VALLE"
+    },
+    {
+        "id": 33,
+        "SIGLA": "GGENA1",
+        "NOMBRE": "GAULA ELITE NACIONAL No. 1"
+    },
+    {
+        "id": 34,
+        "SIGLA": "GGENA2",
+        "NOMBRE": "GAULA ELITE NACIONAL No. 2"
+    }
+]

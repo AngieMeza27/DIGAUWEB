@@ -6,10 +6,13 @@ import OptionCity from './OptionCity';
 import countriesData from "./utils/countries/Countries.json";
 import Deparments from "./utils/countries/Departmets.json"
 import Citys from "./utils/countries/Citys.json"
+import SectionalList from "./utils/sectionals.json"
+import OptionSectional from './OptionSectional';
 //import AxiosClient from '../AxiosClient/AxiosClient';
 
 
 const Register = () => {
+    const userLogin= "Administrador"
     //state de registro
     const [registrarU, setregistrar] = useState({
         identification: "",
@@ -18,17 +21,18 @@ const Register = () => {
         lastName: "",
         cellPhone: "",
         department: "",
-        nationality:"",
+        nationality: "",
         city: "",
         adress: "",
         typeUser: "",
         post: "",
         workdirection: "",
         datebirth: "",
-        PhotoCar:"",
-        PhotoUser: ""
+        PhotoCar: "",
+        PhotoUser: "",
+        PhotoResident: ""
     });
-    const { city,nationality,name, identification, email, cellPhone, adress, lastName,typeUser, post,  workdirection,datebirth, PhotoCar, PhotoUser,department } = registrarU;
+    const { city, nationality, name, identification, email, cellPhone, adress, lastName, typeUser, post, workdirection, datebirth, PhotoCar, PhotoUser, department, PhotoResident } = registrarU;
 
     const handleChange = e => {
         console.log(e.target.value);
@@ -53,7 +57,7 @@ const Register = () => {
         setregistrar({
             identification: "",
             name: "",
-            lastName:"",
+            lastName: "",
             email: "",
             cellPhone: "",
             adress: ""
@@ -86,7 +90,7 @@ const Register = () => {
                 >
                     <div className="row justify-content-center ">
                         <div className="col-md-7 m-4">
-                            <Option options={["Administrador", "Cliente", "Reacción"]} handleChange = {handleChange} title = {"Usuario"} value = {typeUser} valueName={"typeUser"} />
+                            <Option options={["Cliente", "Reaccion"]} handleChange={handleChange} title={"Usuario"} value={typeUser} valueName={"typeUser"} />
                             <input
                                 name="identification"
                                 className="form-control mb-3 secundary-color "
@@ -96,7 +100,8 @@ const Register = () => {
                                 onChange={handleChange}
                             />
                             {
-                                typeUser == "Cliente" ? <>
+                                typeUser === "Cliente" ? (
+                                    <>
                                         <input
                                             name="name"
                                             className="form-control mt-4 secundary-color "
@@ -154,6 +159,15 @@ const Register = () => {
                                             onChange={handleChange}
                                         />
                                         <input
+                                            name="PhotoResident"
+                                            className="form-control mb-3 mt-4 secundary-color"
+                                            type="file"
+                                            placeholder="Foto Residencial"
+                                            value={PhotoResident}
+                                            onChange={handleChange}
+                                            accept="image/*"
+                                        />
+                                        <input
                                             name="PhotoCar"
                                             className="form-control mb-3 mt-4 secundary-color"
                                             type="file"
@@ -171,22 +185,63 @@ const Register = () => {
                                             onChange={handleChange}
                                             accept="image/*"
                                         />
-                                        <Option options={countriesData.countries} handleChange = {handleChange} title = {"Nacionalidad"} valueName = {"nationality"} value ={nationality} />
-                                        <Option options={Deparments.departments} handleChange = {handleChange} title = {"Departamento"} valueName = {"department"} value ={department}/>
+                                        <Option options={countriesData.countries} handleChange={handleChange} title="Nacionalidad" valueName="nationality" value={nationality} />
+                                        <Option options={Deparments.departments} handleChange={handleChange} title="Departamento" valueName="department" value={department} />
+                                        {department !== "" ? <OptionCity options={Citys} handleChange={handleChange} title="City" valueSearch={department} value={city} valueName="city" /> : null}
+                                    </>
+                                ) : typeUser === "Reaccion" || userLogin == "Administrador" ? (
+                                    <>
+                                        <input
+                                            name="name"
+                                            className="form-control mt-4 secundary-color "
+                                            type="text"
+                                            placeholder="Nombre"
+                                            value={name}
+                                            onChange={handleChange}
+                                        />
+                                        <input
+                                            name="lastName"
+                                            className="form-control mt-4 secundary-color"
+                                            type="text"
+                                            placeholder="Apellido"
+                                            value={lastName}
+                                            onChange={handleChange}
+                                        />
+                                        <input
+                                            name="email"
+                                            className="form-control mt-4 secundary-color"
+                                            type="email"
+                                            placeholder="Email"
+                                            value={email}
+                                            onChange={handleChange}
+                                        />
+                                        <input
+                                            name="post"
+                                            className="form-control mt-4 secundary-color"
+                                            type="text"
+                                            placeholder="Cargo"
+                                            value={post}
+                                            onChange={handleChange}
+                                        />
+                                        <input
+                                            name="cellPhone"
+                                            className="form-control mt-4 secundary-color mb-4"
+                                            type="number"
+                                            placeholder="Telefono"
+                                            value={cellPhone}
+                                            onChange={handleChange}
+                                        />
+                                        <Option options={Deparments.departments} handleChange={handleChange} title="Departamento" valueName="department" value={department} />
+                                        {department !== "" ? <OptionCity options={Citys} handleChange={handleChange} title="City" valueSearch={department} value={city} valueName="city" /> : null}
                                         {
-                                            department != ""? <OptionCity options={Citys} handleChange = {handleChange} title = {"City"} valueSearch = {department} value={city} valueName = {"city"}/>: null
+                                            userLogin == "Administrador"? 
+                                            <OptionSectional options={SectionalList} handleChange={handleChange} title="Seccionales" valueName="department" value={department} />
+                                            :null
                                         }
-                                        </>
-                                     :  <>
-                                            <input
-                                                name="post"
-                                                className="form-control mt-4 secundary-color"
-                                                type="text"
-                                                placeholder="Cargo"
-                                                value={post}
-                                                onChange={handleChange}
-                                            />
-                                        </>
+                                    </>
+                                ) : (
+                                    null
+                                )
                             }
                         </div>
                         <div className="col-md-7 clearfix">
