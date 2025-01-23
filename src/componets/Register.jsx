@@ -8,7 +8,7 @@ import Deparments from "./utils/countries/Departmets.json"
 import Citys from "./utils/countries/Citys.json"
 import SectionalList from "./utils/sectionals.json"
 import OptionSectional from './OptionSectional';
-import AxiosClient from '../AxiosClient/AxiosClient';
+import AxiosClient from './AxiosClient/AxiosClient';
 
 
 const Register = () => {

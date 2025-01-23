@@ -2,7 +2,7 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom"
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import axios from 'axios';
-//import useAuth from "../../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 const Login = () => {
   //State de usuario
   const [user, setUser] = useState({
@@ -15,7 +15,7 @@ const Login = () => {
 
   const { email, password } = user;
   //state de autenticacion
-  //const {setAuthUser} = useAuth();
+  const {setAuthUser} = useAuth();
 
   const handleChange = (e) => {
     setUser({
@@ -43,20 +43,21 @@ const Login = () => {
       const response = await axios.post(`${url}/login`,user,{header:{"Content-Type":"application/json"}});
       localStorage.setItem('token',response.data.token);
       setAuthUser(response.data.user); 
-     if(response.data.user.codigo  && response.data.user.rol === "Estudiante" || response.data.user.rol === "estudiante")
-     {
-       navigate("/dashboard");
-     }else if(response.data.user.codigo  && response.data.user.rol === "Administrador" || response.data.user.rol === "administrador" ){
-       navigate("/dashboard-admin");
-     }
-      
+      const { user } = response.data;
+      if (user.codigo) {
+        const role = user.rol?.toLowerCase(); // Convertir el rol a minúsculas para simplificar la comparación
+        if (role === "seccional") {
+          navigate("/dashboard");
+        } else if (role === "administrador") {
+          navigate("/dashboard-admin");
+        }
+      }
     }catch(error){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'El usuario o la contraseña no existen',
           });
-        console.log(error);
     }
 }
   return (
