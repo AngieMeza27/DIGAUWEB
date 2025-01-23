@@ -8,7 +8,7 @@ import Deparments from "./utils/countries/Departmets.json"
 import Citys from "./utils/countries/Citys.json"
 import SectionalList from "./utils/sectionals.json"
 import OptionSectional from './OptionSectional';
-//import AxiosClient from '../AxiosClient/AxiosClient';
+import AxiosClient from '../AxiosClient/AxiosClient';
 
 
 const Register = () => {
@@ -66,11 +66,11 @@ const Register = () => {
 
     const register_user = async () => {
         try {
-            // const {data} = await AxiosClient.post('/register',registrarU);
+            const {data} = await AxiosClient.post('/register',registrarU);
             console.log(data);
             Swal.fire({
                 icon: 'success',
-                text: 'Producto Registrado con exitoso',
+                text: 'Usuario Registrado con exitoso',
             });
         } catch (error) {
             console.log(error);
