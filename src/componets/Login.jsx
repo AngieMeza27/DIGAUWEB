@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom"
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import axios from 'axios';
 import useAuth from "../hooks/useAuth";
+import jwtDecode from "jwt-decode";
+
 const Login = () => {
   //State de usuario
   const [user, setUser] = useState({
@@ -10,7 +12,6 @@ const Login = () => {
     password: "",
   });
 
-  
   let navigate = useNavigate();
 
   const { email, password } = user;
@@ -42,10 +43,11 @@ const Login = () => {
       const url = import.meta.env.VITE_APP_RUTA;
       const response = await axios.post(`${url}/login`,user,{header:{"Content-Type":"application/json"}});
       localStorage.setItem('token',response.data.token);
-      setAuthUser(response.data.user); 
-      const { user } = response.data;
+      const user = jwtDecode(response.data.token);
+      console.log("Información del token:", decodedToken);
+      setAuthUser(user); 
       if (user.codigo) {
-        const role = user.rol?.toLowerCase(); // Convertir el rol a minúsculas para simplificar la comparación
+        const role = user.role?.toLowerCase(); // Convertir el rol a minúsculas para simplificar la comparación
         if (role === "seccional") {
           navigate("/dashboard");
         } else if (role === "administrador") {

@@ -5,7 +5,7 @@ const  RouteProtected = ()=> {
     const {authUser} = useAuth();
     return (
         <>
-            {authUser.codigo ?<Outlet/>:<Navigate to="/"/>}
+            {authUser.id ?<Outlet/>:<Navigate to="/"/>}
         </>
     )
 }
