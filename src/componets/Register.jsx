@@ -59,10 +59,10 @@ const Register = () => {
         e.preventDefault();
         if ([name, identification, email, cellPhone, adress].includes('')) {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Todos los campos son obligatorios',
-            });
+                icon: 'success',
+                title: 'Creacion usuario',
+                text: 'Usuario creado exitosamente'
+              });
             return;
         }
         register_user();
@@ -78,6 +78,11 @@ const Register = () => {
     }
 
     const register_user = async () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Creacion usuario',
+            text: 'Usuario creado exitosamente'
+          });
         try {
             const {data} = await AxiosClient.post('/register',registrarU);
             console.log(data);
