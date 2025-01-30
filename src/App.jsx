@@ -15,6 +15,7 @@ function App() {
                 < Route index element={ <Register/>}/>
               </Route>
               <Route path="/" element={<Login/>}></Route>
+              <Route path="/form" element={<Register/>}></Route>
            </Routes>
       </AuthProvider>
    </BrowserRouter>

@@ -3,7 +3,9 @@ import {useNavigate} from "react-router-dom"
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 import axios from 'axios';
 import useAuth from "../hooks/useAuth";
-import jwtDecode from "jwt-decode";
+import * as jwt_decode from 'jwt-decode';
+
+
 
 const Login = () => {
   //State de usuario
@@ -43,7 +45,7 @@ const Login = () => {
       const url = import.meta.env.VITE_APP_RUTA;
       const response = await axios.post(`${url}/login`,user,{header:{"Content-Type":"application/json"}});
       localStorage.setItem('token',response.data.token);
-      const user = jwtDecode(response.data.token);
+      const user = jwt_decode(response.data.token);
       console.log("Información del token:", decodedToken);
       setAuthUser(user); 
       if (user.codigo) {
@@ -75,10 +77,10 @@ const Login = () => {
       <div className="row justify-content-center mt-3">
         <div className="col-4">
           <h5 className="text-center text-color fw-bold pt-2">
-            Lorem ipsum dolor, sit amet
+            Gaula Nacional
           </h5>
           <p className="text-center text-secundary fw-bold ">
-            Lorem ipsum dolor, sit amet
+            Sistema de gestion para alertas de seguridad
           </p>
         </div>
       </div>

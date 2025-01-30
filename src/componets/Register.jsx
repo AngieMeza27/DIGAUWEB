@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Option from './Option';
@@ -21,6 +21,7 @@ const Register = () => {
         lastName: "",
         cellPhone: "",
         department: "",
+        sectional: "",
         nationality: "",
         city: "",
         adress: "",
@@ -32,7 +33,19 @@ const Register = () => {
         PhotoUser: "",
         PhotoResident: ""
     });
-    const { city, nationality, name, identification, email, cellPhone, adress, lastName, typeUser, post, workdirection, datebirth, PhotoCar, PhotoUser, department, PhotoResident } = registrarU;
+    const [usersType, setUsersType] = useState([]);
+    useEffect(() => {
+        setOption();
+      }, []);
+
+      const setOption = () => {
+        if (userLogin === "Administrador") {
+          setUsersType(["Cliente", "Seccional"]);
+        } else {
+          setUsersType(["Cliente"]);
+        }
+      };
+    const { city, nationality, sectional, name, identification, email, cellPhone, adress, lastName, typeUser, post, workdirection, datebirth, PhotoCar, PhotoUser, department, PhotoResident } = registrarU;
 
     const handleChange = e => {
         console.log(e.target.value);
@@ -90,7 +103,7 @@ const Register = () => {
                 >
                     <div className="row justify-content-center ">
                         <div className="col-md-7 m-4">
-                            <Option options={["Cliente", "Reaccion"]} handleChange={handleChange} title={"Usuario"} value={typeUser} valueName={"typeUser"} />
+                            <Option options={usersType} handleChange={handleChange} title={"Usuario"} value={typeUser} valueName={"typeUser"} />
                             <input
                                 name="identification"
                                 className="form-control mb-3 secundary-color "
@@ -189,7 +202,7 @@ const Register = () => {
                                         <Option options={Deparments.departments} handleChange={handleChange} title="Departamento" valueName="department" value={department} />
                                         {department !== "" ? <OptionCity options={Citys} handleChange={handleChange} title="City" valueSearch={department} value={city} valueName="city" /> : null}
                                     </>
-                                ) : typeUser === "Reaccion" || userLogin == "Administrador" ? (
+                                ) : typeUser === "Seccional" ? (
                                     <>
                                         <input
                                             name="name"
@@ -233,11 +246,7 @@ const Register = () => {
                                         />
                                         <Option options={Deparments.departments} handleChange={handleChange} title="Departamento" valueName="department" value={department} />
                                         {department !== "" ? <OptionCity options={Citys} handleChange={handleChange} title="City" valueSearch={department} value={city} valueName="city" /> : null}
-                                        {
-                                            userLogin == "Administrador"? 
-                                            <OptionSectional options={SectionalList} handleChange={handleChange} title="Seccionales" valueName="department" value={department} />
-                                            :null
-                                        }
+                                        <OptionSectional options={SectionalList} handleChange={handleChange} title="Seccionales" valueName="department" value={department} />
                                     </>
                                 ) : (
                                     null
